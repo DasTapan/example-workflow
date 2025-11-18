@@ -1,0 +1,4 @@
+name: Test run-ci-action
+
+on:
+  workflow_dispatch
