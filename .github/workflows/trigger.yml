@@ -1,19 +1,20 @@
-name: Test run-ci-action
+name: Run SedStart Test
 
 on:
   workflow_dispatch:
 
 jobs:
-  test-action:
+  sedstart-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger run on platform
-        uses: DasTapan09/no-code@main
+      - name: Trigger SedStart test run
+        uses: DasTapan09/no-code
         with:
-          api_key: ${{ secrets.SEDSTART_API }}
-          project_id: 267
-          test_id: 1180
-          profile_id: 327
+          apiKey: ${{ secrets.SEDSTART_API }}
+          projectId: 270
+          testId: 1186
+          profileId: 330
           browser: chrome
-          headless: true
+          headless: false
+          environment: Prod
 
