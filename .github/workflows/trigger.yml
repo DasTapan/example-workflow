@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger run on platform
-        uses: your-org/run-ci-action@main
+        uses: DasTapan09/no-code@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 267
