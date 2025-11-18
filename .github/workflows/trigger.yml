@@ -11,10 +11,10 @@ jobs:
         uses: DasTapan09/no-code@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
-          project_id: 267
-          test_id: 1605
-          profile_id: 327
+          project_id: 364
+          test_id: 1629
+          profile_id: 616
           browser: chrome
           headless: true
-          environment: Prod
+          environment: QA
 
