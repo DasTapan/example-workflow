@@ -1,0 +1,73 @@
+version: 2.1
+
+jobs:
+  run-sedstart-ci:
+    parameters:
+      project_id:
+        type: string
+        default: "270"
+      test_id:
+        type: string
+        default: "1186"
+      profile_id:
+        type: string
+        default: "330"
+      browser:
+        type: string
+        default: "chrome"
+      headless:
+        type: boolean
+        default: false
+      environment:
+        type: string
+        default: "Prod"
+
+    docker:
+      - image: cimg/base:stable
+
+    steps:
+      - checkout
+
+      - run:
+          name: Set SedStart Base URL
+          command: |
+            if [ "<< parameters.environment >>" = "QA" ]; then
+              export SEDSTART_BASE_URL="https://sedstart.sedinqa.com"
+            else
+              export SEDSTART_BASE_URL="https://app.sedstart.com"
+            fi
+            echo "Using Base URL: $SEDSTART_BASE_URL"
+            echo "export SEDSTART_BASE_URL=$SEDSTART_BASE_URL" >> $BASH_ENV
+
+      - run:
+          name: Trigger SedStart CI Run
+          command: |
+            source $BASH_ENV
+
+            echo "Triggering SedStart CI Run..."
+
+            curl --no-buffer -X POST \
+              "$SEDSTART_BASE_URL/api/project/<< parameters.project_id >>/runCI" \
+              -H "X-API-Key: $SEDSTART_API_KEY" \
+              -H "Content-Type: application/json" \
+              --data "{
+                \"project_id\": << parameters.project_id >>,
+                \"test_id\": << parameters.test_id >>,
+                \"profile_id\": << parameters.profile_id >>,
+                \"browser\": \"<< parameters.browser >>\",
+                \"headless\": << parameters.headless >>
+              }" \
+              --fail \
+              -N
+
+workflows:
+  sedstart-workflow:
+    jobs:
+      - run-sedstart-ci:
+          environment: "QA"
+          project_id: "364"
+          test_id: "1629"
+          profile_id: "616"
+          browser: "chrome"
+          headless: false
+
