@@ -2,11 +2,18 @@ name: Sedstart QA
 
 on:
   workflow_dispatch:
-
+  
 jobs:
   sedstart-run:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Xvfb (for headed runs)
+        if: runner.os == 'Linux'
+        uses: coactions/setup-xvfb@v1
+        with:
+          display: ':99'
+          screen: '0 1920x1080x24'
+
       - name: Trigger SedStart test run
         uses: DasTapan09/runlocal@main
         with:
