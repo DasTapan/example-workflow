@@ -1,4 +1,4 @@
-name: Sedstart QA
+name: Sedstart Local Linux
 
 on:
   workflow_dispatch:
