@@ -18,7 +18,7 @@ jobs:
         uses: DasTapan09/runlocal@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
-          project_id: 
+          project_id: 12452
           test_id: 1629
           profile_id: 616
           environment: QA
