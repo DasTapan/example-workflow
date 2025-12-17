@@ -1,0 +1,17 @@
+name: Sedstart QA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sedstart-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger SedStart test run
+        uses: DasTapan09/no-code@main
+        with:
+          api_key: ${{ secrets.SEDSTART_API }}
+          project_id: 364
+          test_id: 1629
+          profile_id: 616
+          environment: QA
