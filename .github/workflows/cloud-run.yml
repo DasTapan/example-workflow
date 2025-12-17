@@ -1,4 +1,4 @@
-name: Sedstart QA
+name: Sedstart Cloud 
 
 on:
   workflow_dispatch:
