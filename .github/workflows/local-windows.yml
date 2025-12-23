@@ -15,6 +15,7 @@ jobs:
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
+          suite_id: 316
           profile_id: 616
           environment: QA
           browser: 'msedge'
