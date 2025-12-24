@@ -19,5 +19,6 @@ jobs:
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
+          test_id: 1629
           profile_id: 616
           environment: QA
