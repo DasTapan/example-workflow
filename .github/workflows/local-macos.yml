@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Trigger SedStart test run
-        uses: DasTapan09/gh-local@main
+        uses: sedstart/runlocal@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
