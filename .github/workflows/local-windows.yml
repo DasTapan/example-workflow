@@ -11,11 +11,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Trigger SedStart test run
-        uses: DasTapan09/gh-local@main
+        uses: DasTapan09/gh-local@xvfb
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
           test_id: 1629
           profile_id: 616
           environment: QA
-          headless: true
