@@ -15,7 +15,7 @@ jobs:
           options: "-screen 0 1920x1080x24"
 
       - name: Trigger SedStart test run
-        uses: DasTapan09/runlocal@ss-781
+        uses: sedstart/runlocal@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
