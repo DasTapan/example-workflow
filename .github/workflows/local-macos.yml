@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Trigger SedStart test run
-        uses: sedstart/runlocal@main
+        uses: DasTapan09/runlocal@universal-installer
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
