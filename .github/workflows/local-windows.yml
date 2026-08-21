@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Trigger SedStart test run
-        uses: DasTapan09/runlocal@universal-installer
+        uses: DasTapan09/runlocal@main
         with:
           api_key: ${{ secrets.SEDSTART_API }}
           project_id: 364
